@@ -1,0 +1,101 @@
+###################################################
+#               ALARM AUTOMATION                  #
+###################################################
+- alias: "Alarm Away"
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: sensor.motion_sensor
+      to: 'Motion_Detected'
+    - platform: state
+      entity_id: sensor.entrance_door_sensor
+      to: 'Open'
+  condition:
+    - condition: state
+      entity_id: alarm_control_panel.home_alarm
+      state: 'armed_away'
+  action:
+    service: alarm_control_panel.alarm_trigger
+    entity_id: alarm_control_panel.home_alarm
+#####################################################
+- alias: "Alarm Home"
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: sensor.entrance_door_sensor
+      to: 'Open'
+  condition:
+    - condition: state
+      entity_id: alarm_control_panel.home_alarm
+      state: 'armed_home'
+  action:
+    service: alarm_control_panel.alarm_trigger
+    entity_id: alarm_control_panel.home_alarm
+####################################################
+### alarm light flash on                           #
+####################################################
+- alias: "Triggered"
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.home_alarm
+      to: 'triggered'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.diningroomled
+    - service: notify.gmail
+      data:
+        message: 'Home Alarm Triggered {{now().strftime("%d-%m-%Y-%H:%M:%S")}}'
+    - service: notify.ios_gabriels_iphone_6plus
+      data:
+        message: 'Home Alarm Triggered {{now().strftime("%d-%m-%Y-%H:%M:%S")}}'
+################################
+### alarm light flash off
+################################
+#
+- alias: "Disarmed"
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.home_alarm
+      to: 'disarmed'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.diningroomled
+    - service: script.disarm_rf
+    - service: notify.gmail
+      data:
+        message: 'Home Alarm Disarmed {{now().strftime("%d-%m-%Y-%H:%M:%S")}}'
+    - service: notify.ios_gabriels_iphone_6plus
+      data:
+        message: 'Home Alarm Disarmed {{now().strftime("%d-%m-%Y-%H:%M:%S")}}'
+#################################################
+- alias: "Set Alarm Away"
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.home_alarm
+      to: 'armed_away'
+  action:
+    - service: script.full_arm_rf
+    - service: notify.gmail
+      data:
+        message: 'Home Alarm Armed Away {{now().strftime("%d-%m-%Y-%H:%M:%S")}}'
+    - service: notify.ios_gabriels_iphone_6plus
+      data:
+        message: 'Home Alarm Armed Away {{now().strftime("%d-%m-%Y-%H:%M:%S")}}'
+###################################################
+- alias: "Set Alarm Home"
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.home_alarm
+      to: 'armed_home'
+  action:
+    - service: script.half_arm_rf
+    - service: notify.gmail
+      data:
+        message: 'Home Alarm Armed Home {{now().strftime("%d-%m-%Y-%H:%M:%S")}}'
+    - service: notify.ios_gabriels_iphone_6plus
+      data:
+        message: 'Home Alarm Armed Home {{now().strftime("%d-%m-%Y-%H:%M:%S")}}'
