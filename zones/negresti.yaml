@@ -1,0 +1,4 @@
+- name: Negresti
+  latitude: !secret negresti_lat
+  longitude: !secret negresti_long
+  radius: 50
