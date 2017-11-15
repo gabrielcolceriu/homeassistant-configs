@@ -1,0 +1,132 @@
+#Socket MP1
+  - platform: broadlink
+    view: yes
+    emulated_hue: true
+    emulate_hue_name: Socket1
+    host: 1.2.3.4
+    mac: 'xx:xx:xx:xx:xx:xx'
+    type: mp1-1
+    friendly_name: LivingroomSocket1
+  - platform: broadlink
+    view: yes
+    emulated_hue: true
+    emulate_hue_name: Socket2
+    host: 1.2.3.4
+    mac: 'xx:xx:xx:xx:xx:xx'
+    type: mp1-2
+    friendly_name: LivingroomSocket2
+  - platform: broadlink
+    view: yes
+    emulated_hue: true
+    emulate_hue_name: Socket3
+    host: 1.2.3.4
+    mac: 'xx:xx:xx:xx:xx:xx'
+    type: mp1-3
+    friendly_name: LivingroomSocket3
+  - platform: broadlink
+    view: yes
+    emulated_hue: true
+    emulate_hue_name: Socket4
+    host: 1.2.3.4
+    mac: 'xx:xx:xx:xx:xx:xx'
+    type: mp1-4
+    friendly_name: LivingroomSocket4
+#Broadlink RM Mini
+  - platform: broadlink
+    host: 1.2.3.4
+    mac: 'xx:xx:xx:xx:xx:xx'
+    switches:
+       # Tv PowerOn/Off DiningRoom
+      power_rgb:
+        friendly_name: "DiningRoomLed"
+        command_on: 'JgBYAAABL5MUEhMSExITExMSExITExMRFDcTNxI4FTYRFBU2FDYUNhU2FDYUEhMSFBETExMRFBITEhMSEzcTNxM3FDYTNxM3FAAFRQABLEoTAAxZAAE0ShMADQU='
+        command_off: 'JgBYAAABKZURFRETEhQRFRAUExMSExISFDcTNxM3EzcTEhQ3EzYUNhUREjcUEhMUEhETExITExEUNxITFDcSNxM3EzgSOBI4EwAFRgABLUsSAAxXAAEpSxIADQU='
+      luninosity_rgb:
+        friendly_name: "DiningRoomLed-Luminosity"
+        command_on: 'JgBQAAABK5QSFBEUEhMSExITExMRFBEUEzcSOBI4EjgTEhI4EjgSOBM3EjgTNhMTEDkTExAVERQSExEVEBQTNxITEzcSOBI4EgAFQQABKksSAA0FAAAAAAAAAAA='
+        command_off: 'JgBQAAABKZQSFBETExMRFBETExMRFBETEzgSNxI4EjgSExI4EjgSNxMTERQRFBITERQSExITERQSOBI3EzgSNxI4EjgSOBI4EgAFQQABKUoSAA0FAAAAAAAAAAA='
+#Broadlink RM PRO Infrared
+  - platform: broadlink
+    host: 1.2.3.4
+    mac: 'xx:xx:xx:xx:xx:xx'
+    switches:
+       # Tv PowerOn/Off Samsung
+      tv_power_livingroom:
+        friendly_name: "TvLivingroom"
+        command_on: 'JgCMAJKWEDkRORA5ERQRFBAVEBUQFBE5EDkRORAVEBQRFBEUEBUQFRA5EBUQFRAUERQRFBAVEDkRFBA5ETkQOhA5EDoQOREABgKSlhA6EDkQOhAUERQRFBAVEBUQORA6EDkQFRAVEBQRFBEUEBUQOREUEBUQFRAUERQRFBA5ERQRORA5ETkQORE5EDkRAA0FAAAAAAAAAAAAAAAA='
+        command_off: 'JgCMAJKWEDkRORA5ERQRFBAVEBUQFBE5EDkRORAVEBQRFBEUEBUQFRA5EBUQFRAUERQRFBAVEDkRFBA5ETkQOhA5EDoQOREABgKSlhA6EDkQOhAUERQRFBAVEBUQORA6EDkQFRAVEBQRFBEUEBUQOREUEBUQFRAUERQRFBA5ERQRORA5ETkQORE5EDkRAA0FAAAAAAAAAAAAAAAA='
+#Broadlink RM PRO Infrared Scripts
+  - platform: template
+    switches:
+      digisport_samsung_livingroom:
+        friendly_name: "Sport"
+        value_template: "{{ is_state('script.digisport_samsung_livingroom',  'on') }}"
+        turn_on:
+          service: script.digisport_samsung_livingroom
+          entity_id: switch.digisport_samsung_livingroom
+        turn_off:
+          service: script.digisport_samsung_livingroom
+          entity_id: switch.digisport_samsung_livingroom
+      comedycentral_samsung_livingroom:
+        friendly_name: "Comedy Central"
+        value_template: "{{ is_state('script.comedycentral_samsung_livingroom',  'on') }}"
+        turn_on:
+          service: script.comedycentral_samsung_livingroom
+          entity_id: switch.comedycentral_samsung_livingroom
+        turn_off:
+          service: script.comedycentral_samsung_livingroom
+          entity_id: switch.comedycentral_samsung_livingroom
+      protv_samsung_livingroom:
+        friendly_name: "ProTV"
+        value_template: "{{ is_state('script.protv_samsung_livingroom',  'on') }}"
+        turn_on:
+          service: script.protv_samsung_livingroom
+          entity_id: switch.protv_samsung_livingroom
+        turn_off:
+          service: script.protv_samsung_livingroom
+          entity_id: switch.protv_samsung_livingroom
+      sleep_samsung_livingroom:
+        friendly_name: "Sleep"
+        value_template: "{{ is_state('script.sleep_samsung_livingroom',  'on') }}"
+        turn_on:
+          service: script.sleep_samsung_livingroom
+          entity_id: switch.sleep_samsung_livingroom
+        turn_off:
+          service: script.sleep_samsung_livingroom
+          entity_id: switch.sleep_samsung_livingroom
+      full_arm_alarm:
+        friendly_name: "Full Arm"
+        value_template: "{{ is_state('script.full_arm_rf',  'on') }}"
+        turn_on:
+          service: script.full_arm_rf
+          entity_id: switch.full_arm_rf
+        turn_off:
+          service: script.full_arm_rf
+          entity_id: switch.full_arm_rf
+      half_arm_alarm:
+        friendly_name: "Half Arm"
+        value_template: "{{ is_state('script.half_arm_rf',  'on') }}"
+        turn_on:
+          service: script.half_arm_rf
+          entity_id: switch.half_arm_rf
+        turn_off:
+          service: script.half_arm_rf
+          entity_id: switch.half_arm_rf
+      disarm_alarm:
+        friendly_name: "Disarm"
+        value_template: "{{ is_state('script.disarm_rf',  'on') }}"
+        turn_on:
+          service: script.disarm_rf
+          entity_id: switch.disarm_rf
+        turn_off:
+          service: script.disarm_rf
+          entity_id: switch.disarm_rf
+      sos_alarm:
+        friendly_name: "Sos Nob"
+        value_template: "{{ is_state('script.sos_rf',  'on') }}"
+        turn_on:
+          service: script.sos_rf
+          entity_id: switch.sos_rf
+        turn_off:
+          service: script.sos_rf
+          entity_id: switch.sos_rf
