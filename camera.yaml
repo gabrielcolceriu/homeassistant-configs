@@ -1,0 +1,7 @@
+- platform: synology
+  url: http://1.2.3.4:5000
+  username: admin
+  password: password
+  timeout: 15
+- platform: local_file
+  file_path: /share/motion/lastsnap.jpg
