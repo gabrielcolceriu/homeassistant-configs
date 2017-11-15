@@ -1,0 +1,16 @@
+###################################################
+#ENTRANCE DOOR OPEN LED DININGROOM
+###################################################
+- alias: "Door Open Switch On Led if it is Dark"
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: sensor.entrance_door_sensor
+      to: 'Open'
+  condition:
+    - condition: state
+      entity_id: sensor.a1dining_light
+      state: 'Dark'
+  action:
+    service: homeassistant.turn_on
+    entity_id: switch.diningroomled
