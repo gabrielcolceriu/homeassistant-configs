@@ -1,0 +1,121 @@
+gabrielsiphone6splus:
+  hide_if_away: false
+  icon: mdi:phone
+  mac: 0c:d7:46:2a:8b:8b
+  name: Gabriel's iPhone 6s Plus
+  picture:
+  track: true
+  vendor:
+gabrielsiphone5s:
+  hide_if_away: false
+  icon: mdi:phone
+  mac: 54:72:4f:4c:37:4e
+  name: "Gabriel\u2019s iPhone 5s"
+  picture:
+  track: true
+  vendor:
+gabriels_iphone_6s_plus_bluetooth:
+  hide_if_away: false
+  icon:
+  mac: BT_0C:D7:46:2A:8B:8C
+  name: Gabriel's iPhone 6s Plus
+  picture:
+  track: true
+  vendor: unknown
+gabrielcolceriusmacbookpro:
+  hide_if_away: false
+  icon:
+  mac:
+  name: Gabriel Colceriu`s MacBookPro
+  picture:
+  track: true
+  vendor:
+nokia225:
+  hide_if_away: false
+  icon:
+  mac: BT_20:A9:9B:CE:A1:09
+  name: Nokia225
+  picture:
+  track: true
+  vendor: Microsoft Corporation
+
+dell_wireless_365_bluetooth_module:
+  hide_if_away: false
+  icon:
+  mac: BT_5C:AC:4C:EB:BA:CD
+  name: Dell Wireless 365 Bluetooth Module
+  picture:
+  track: true
+  vendor: Hon Hai Precision Ind. Co.,Ltd.
+
+e2121b33:
+  hide_if_away: false
+  icon:
+  mac: BT_8C:77:12:6F:6C:95
+  name: E2121B(33**)
+  picture:
+  track: true
+  vendor: Samsung Electronics Co.,Ltd
+
+admin_phone:
+  hide_if_away: false
+  icon:
+  mac:
+  name: admin
+  picture:
+  track: true
+  vendor:
+
+hostrooter:
+  hide_if_away: false
+  icon:
+  mac:
+  name: hostrooter
+  picture:
+  track: true
+  vendor:
+
+hosttvlivingroom:
+  hide_if_away: false
+  icon:
+  mac:
+  name: hosttvlivingroom
+  picture:
+  track: true
+  vendor:
+
+hostbroadlinkrmpro:
+  hide_if_away: false
+  icon:
+  mac:
+  name: hostbroadlinkrmpro
+  picture:
+  track: true
+  vendor:
+
+hostbroadlinka1:
+  hide_if_away: false
+  icon:
+  mac:
+  name: hostbroadlinka1
+  picture:
+  track: true
+  vendor:
+
+hostbroadlinksp1:
+  hide_if_away: false
+  icon:
+  mac:
+  name: hostbroadlinksp1
+  picture:
+  track: true
+  vendor:
+
+hostsynology:
+  hide_if_away: false
+  icon:
+  mac:
+  name: hostsynology
+  picture:
+  track: true
+  vendor:
