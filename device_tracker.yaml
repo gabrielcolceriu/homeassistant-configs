@@ -1,0 +1,16 @@
+ - platform: icloud
+    username: email@email.com
+    password: password
+    account_name: Name Surname
+  - platform: owntracks
+    max_gps_accuracy: 200
+    waypoints: True
+  - platform: bluetooth_tracker
+  - platform: ping
+    hosts:
+      hostrooter: 1.2.3.4
+      hosttvlivingroom: 1.2.3.4
+      hostbroadlinkrmpro: 1.2.3.4
+      hostbroadlinka1: 1.2.3.4
+      hostbroadlinksp1: 1.2.3.4
+      hostsynology: 1.2.3.4
