@@ -1,0 +1,13 @@
+ - platform: ios
+  - name: gmail
+    platform: smtp
+    server: smtp.gmail.com
+    port: 587
+    timeout: 15
+    sender: email@gmail.com
+    encryption: starttls
+    username: email@gmail.com
+    password: password
+    recipient:
+      - email@gmail.com
+    sender_name: Colceriu`s Home Assistant
