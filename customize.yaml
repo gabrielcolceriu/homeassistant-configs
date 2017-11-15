@@ -1,0 +1,81 @@
+ switch.bedroomtv:
+    icon: mdi:power
+  switch.source:
+    icon: mdi:source-commit-end
+  switch.volume:
+    icon: mdi:volume-high
+  switch.box:
+    icon: mdi:power
+  switch.tvlivingroom:
+    icon: mdi:television
+    friendly_name: TvLivingroom
+  script.sleep_samsung_livingroom:
+    icon: mdi:television
+    friendly_name: sleeptv
+  script.digisport_samsung_livingroom:
+    friendly_name: Digisport
+    icon: mdi:television
+    assumed_state: false
+  script.comedycentral_samsung_livingroom:
+    icon: mdi:television
+    friendly_name: ComedyCentral
+  script.protv_samsung_livingroom:
+    icon: mdi:television
+    friendly_name: ProTV
+  script.disneyjunior_samsung_livingroom:
+    icon: mdi:television
+    friendly_name: DisneyJunior
+  script.utv_samsung_livingroom:
+    icon: mdi:television
+    friendly_name: Utv
+  script.full_arm_rf:
+    icon: mdi:shield
+    friendly_name: Full Arm
+  script.half_arm_rf:
+    icon: mdi:shield-half-full
+    friendly_name: Half Arm
+  script.disarm_rf:
+    icon: mdi:shield-outline
+    friendly_name: Disarm
+  script.sos_rf:
+    icon: mdi:verified
+    friendly_name: SOS
+  alarm_control_panel.home_alarm:
+    icon: mdi:dialpad
+    friendly_name: KeyPad
+  script.redcolor_rgb_led:
+    icon: mdi:lightbulb
+    friendly_name: RGB Red Color
+  script.greencolor_rgb_led:
+    icon: mdi:lightbulb
+    friendly_name: RGB Green Color
+  script.bluecolor_rgb_led:
+    icon: mdi:lightbulb
+    friendly_name: RGB Blue Color
+  script.whitecolor_rgb_led:
+    icon: mdi:lightbulb
+    friendly_name: RGB White Color
+  script.flash_rgb_led:
+    icon: mdi:lightbulb
+    friendly_name: RGB Flash Led
+  script.strobe_rgb_led:
+    icon: mdi:lightbulb
+    friendly_name: RGB Strobe Led
+  script.fade_rgb_led:
+    icon: mdi:lightbulb
+    friendly_name: RGB Fade Led
+  script.smooth_rgb_led:
+    icon: mdi:lightbulb
+    friendly_name: RGB Smooth Led
+  sensor.motion_sensor:
+    friendly_name: Motion Sensor
+    icon: mdi:walk
+  sensor.entrance_door_sensor:
+    friendly_name: Door Sensor
+    icon: mdi:glassdoor
+  sensor.downstairs_door_sensor:
+    friendly_name: Door Sensor Downstairs
+    icon: mdi:glassdoor
+  binary_sensor.floorplan:
+      custom_ui_state_card: state-card-floorplan
+      config: !include floorplan.yaml
