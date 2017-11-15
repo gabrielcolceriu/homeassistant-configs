@@ -1,0 +1,5 @@
+ broker: 1.2.3.4
+  port: 1883
+  discovery: true
+  username: admin
+  password: password
