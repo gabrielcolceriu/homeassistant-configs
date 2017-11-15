@@ -1,0 +1,4 @@
+expose_by_default: true
+exposed_domains:
+  - light
+  - switch
