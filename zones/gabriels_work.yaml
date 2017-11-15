@@ -1,0 +1,5 @@
+- name: Gabi`s Work
+  latitude: !secret gabriels_work_lat
+  longitude: !secret gabriels_work_long
+  radius: 50
+  icon: mdi:briefcase
