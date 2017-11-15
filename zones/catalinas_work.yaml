@@ -1,0 +1,5 @@
+- name: Catalina`s Work
+  latitude: !secret catalinas_work_lat
+  longitude: !secret catalinas_work_long
+  radius: 50
+  icon: mdi:briefcase
