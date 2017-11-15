@@ -1,0 +1,182 @@
+#Date senzor A1 Broadlink bucatarie
+  - platform: broadlink
+    name: A1-Dining
+    emulated_hue: false
+    host: 1.2.3.4
+    mac: 'xx:xx:xx:xx:xx:xx'
+    update_interval: 60
+    friendly_name: Senzor A1 DiningRoom
+    monitored_conditions:
+       - temperature
+       - humidity
+       - air_quality
+       - light
+       - noise
+#Date Yr
+  - platform: yr
+    monitored_conditions :
+      - temperature
+      - symbol
+      - precipitation
+      - windSpeed
+      - pressure
+      - windDirection
+      - humidity
+      - fog
+      - cloudiness
+      - lowClouds
+      - mediumClouds
+      - highClouds
+      - dewpointTemperature
+#Date BroadlinkRMPro
+  - platform: broadlink
+    name: RmPro-Livingroom
+    host: 1.2.3.4
+    mac: 'xx:xx:xx:xx:xx:xx'
+    friendly_name: BroadlinkRMPro
+    monitored_conditions:
+        - temperature
+#templates for the A1 Sensor
+  - platform: template
+    sensors:
+      a1dining_air_quality:
+        friendly_name: 'A1-Dining Air Quality'
+        value_template: >-
+            {%- if is_state("sensor.a1dining_air_quality_2", "0") %}
+            Excellent
+            {% elif is_state("sensor.a1dining_air_quality_2", "1") %}
+            Good
+            {% elif is_state("sensor.a1dining_air_quality_2", "2") %}
+            Normal
+            {% elif is_state("sensor.a1dining_air_quality_2", "3") %}
+            Bad
+            {% elif is_state("sensor.a1dining_air_quality_2", "unknown") %}
+                Learning
+            {%- endif %}
+      a1dining_light:
+        friendly_name: 'A1-Dining Light'
+        value_template: >-
+            {%- if is_state("sensor.a1dining_light_2", "0") %}
+            Dark
+            {% elif is_state("sensor.a1dining_light_2", "1") %}
+            Dim
+            {% elif is_state("sensor.a1dining_light_2", "2") %}
+            Normal
+            {% elif is_state("sensor.a1dining_light_2", "3") %}
+            Bright
+            {% elif is_state("sensor.a1dining_light_2", "unknown") %}
+                Learning
+            {%- endif %}
+      a1dining_noise:
+        friendly_name: 'A1-Dining Noise'
+        value_template: >-
+            {%- if is_state("sensor.a1dining_noise_2", "0") %}
+            Quiet
+            {% elif is_state("sensor.a1dining_noise_2", "1") %}
+            Normal
+            {% elif is_state("sensor.a1dining_noise_2", "2") %}
+            Noisy
+            {% elif is_state("sensor.a1dining_noise_2", "unknown") %}
+                Learning
+            {%- endif %}
+# NAS Synology
+  - platform: synologydsm
+    host: 1.2.3.4
+    username: admin
+    password: password
+    monitored_conditions:
+      - cpu_total_load
+      - memory_real_usage
+      - network_up
+      - network_down
+      - disk_status
+      - disk_temp
+      - volume_percentage_used
+# Speedtest
+  - platform: speedtest
+    monitored_conditions:
+      - ping
+      - download
+      - upload
+#Transmission
+  - platform: transmission
+    host: 1.2.3.4
+    username: admin
+    password: password
+    monitored_conditions:
+      - current_status
+      - download_speed
+      - upload_speed
+#Wunderground
+  - platform: wunderground
+    api_key: xxxxxxxxxxx
+    monitored_conditions:
+      - alerts
+      - dewpoint_c
+      - feelslike_c
+      - heat_index_c
+      - elevation
+      - location
+      - observation_time
+      - precip_today_metric
+      - precip_1d_mm
+      - precip_1d
+      - precip_2d_mm
+      - precip_2d
+      - precip_3d
+      - precip_3d_mm
+      - pressure_mb
+      - pressure_trend
+      - relative_humidity
+      - station_id
+      - solarradiation
+      - temp_c
+      - temp_high_avg_c
+      - temp_low_avg_c
+      - temp_high_1d_c
+      - temp_high_2d_c
+      - temp_high_3d_c
+      - temp_low_1d_c
+      - temp_low_2d_c
+      - temp_low_3d_c
+      - UV
+      - visibility_km
+      - weather
+      - weather_1d_metric
+      - weather_2d_metric
+      - weather_3d_metric
+      - weather_1h
+      - weather_2h
+      - weather_5h
+      - wind_degrees
+      - wind_dir
+      - wind_gust_kph
+      - wind_gust_1d_kph
+      - wind_gust_2d_kph
+      - wind_gust_3d_kph
+      - wind_kph
+      - wind_1d_kph
+      - wind_2d_kph
+      - wind_3d_kph
+      - wind_string
+  - platform: mqtt
+    state_topic: "sensors/s1c/entrance_door"
+    name: "entrance_door_sensor"
+  - platform: mqtt
+    state_topic: "sensors/s1c/motion_sensor"
+    name: "motion_sensor"
+  - platform: mqtt
+    state_topic: "sensors/s1c/key_fob"
+    name: "key_fob_sensor"
+  - platform: mqtt
+    state_topic: "sensors/evology/downstairs_door"
+    name: "downstairs_door_sensor"
+  - platform: uptime
+    name: Time Online
+    unit_of_measurement: hours
+  - platform: command_line
+    name: CPU Temperature
+    command: "cat /sys/class/thermal/thermal_zone0/temp"
+    unit_of_measurement: "°C"
+    value_template: '{{ value | multiply(0.001) }}'
+  - platform: version
