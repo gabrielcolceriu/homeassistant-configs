@@ -1,0 +1,8 @@
+nodered_flows:
+  title: 'Node-RED Flows'
+  url: 'https://1.2.3.4:1880'
+  icon: mdi:nodejs
+homebridge:
+  title: 'Homebridge'
+  url: 'https://1.2.3.4:8838'
+  icon: mdi:home-automation
