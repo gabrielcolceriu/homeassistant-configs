@@ -11,7 +11,7 @@
     friendly_name: TvLivingroom
   script.sleep_samsung_livingroom:
     icon: mdi:television
-    friendly_name: sleeptv
+    friendly_name: SleepTv
   script.digisport_samsung_livingroom:
     friendly_name: Digisport
     icon: mdi:television
