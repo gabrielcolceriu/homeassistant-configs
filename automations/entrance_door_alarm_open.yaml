@@ -1,0 +1,22 @@
+###################################################
+#ENTRANCE DOOR ALARM IF OPEN FOR LONG TIME
+###################################################
+- alias: "Door Open"
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: sensor.entrance_door_sensor
+      to: 'Open'
+      for:
+        seconds: 15
+  condition:
+    condition: or
+    conditions:
+      - condition: time
+        before: "00:00"
+      - condition: time
+        after: "00:00"
+  action:
+  - service: notify.ios_gabriels_iphone_6plus
+    data:
+      message: 'Door Forgot Open {{now().strftime("%d-%m-%Y-%H:%M:%S")}}'
