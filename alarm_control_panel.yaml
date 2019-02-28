@@ -1,6 +1,6 @@
 - platform: manual
     name: "Home Alarm"
-    code: 1203
+    code: 
     pending_time: 30
     armed_home:
       pending_time: 0
